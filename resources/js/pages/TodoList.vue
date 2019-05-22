@@ -4,7 +4,7 @@
             <v-flex md8 align-self-center>
                 <v-card>
                     <v-card-title>
-                        <h4 style="margin-bottom: 15px;" class="title">Welcome Jundell Agbo</h4>
+                        <h4 style="margin-bottom: 15px;" class="title">Welcome {{ user.user.fullname }}</h4>
                         <v-spacer />
                         <v-tooltip slot="append" bottom>
                             <v-btn icon flat color="primary" slot="activator" @click="logout">
@@ -119,12 +119,13 @@
 
 <script>
 import TodoForm from "./../components/TodoForm.vue"
-import {HTTPAuth} from "./../config"
+import {HTTPAuth, user} from "./../config"
 export default {
     components: {
         'todoform': TodoForm
     },
     data() { return { 
+        user,
         loadingTodos: false,
         datetime: new Date(),
         taskLoading: false,
